@@ -1,0 +1,34 @@
+
+{% extends 'project/base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+{% block content %}
+<div class="container">
+  <div class="row">
+      {% for movie in movies %}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">{{ movie.title }}</div>
+                  <ul class="list-group list-group-flush">
+            <!--          <img src={{ movie.imageUrl }}>-->
+                      <li class="list-group-item">Type: {{ movie.movietype }}</li>
+                      <li class="list-group-item">Director: {{ movie.director }}</li>
+                      <li class="list-group-item">Casts: {{ movie.cast }}</li>
+                      <li class="list-group-item">Country: {{ movie.country }}</li>
+                      <li class="list-group-item">released_year: {{ movie.year }}</li>
+                      <li class="list-group-item">Rating: {{ movie.rating }}</li>
+                  </ul>
+            </div>
+        </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+</body>
+</html>
+
+img = "https://api.themoviedb.org/3/search/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query={}"
