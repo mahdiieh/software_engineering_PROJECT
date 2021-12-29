@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+
+{% block mainbody %}
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<style type="text/css">
+
+body {
+  background-image:url(https://s20.picofile.com/file/8445517150/movie.jpg);
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-attachment: fixed;
+  color: #000;
+  font: 14px Bnazanin;
+  margin: 0 auto;
+  padding: 0;
+  position: center;
+ }
+
+.center {
+    align-items: center;
+    margin-left: 8px;
+}
+.centerEnter {
+    font-size: 20px;
+    width: 250px;
+}
+
+.containerA {
+    position: relative;
+    height: 50vh;
+    text-align: left;
+}
+.mySignup {
+    position: absolute;
+    right: 650px;
+    top: 90px;
+}
+.width {
+    width: 100%;
+}
+.title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn {
+    border-radius: 10px;
+}
+
+.form-control {
+    border-radius: 10px;
+    width: 100%;
+    background: #ffffe0;
+}
+
+.image{
+    position: absolute;
+    left: 20px;
+    top: 110px;
+
+}
+
+
+</style>
+</head>
+  <body>
+<div class="form">
+
+
+      <div class="tab-content containerA">
+          <h1 class="title"><font size="6.5" face="Bnazanin" color="#000080"><strong>Sign Up</strong></font></h1>
+        <div id="signup" class="mySignup">
+          <div class="row justify-content-center mt-5">
+            <div class="col-md-5 width">
+
+                {% if error %}
+                <div class="alert alert-danger btn " role="alert" dir="rtl">
+                    {{ error }}
+                </div>
+                {% endif %}
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                            <label for="username" class="color"><span>*</span><font color="#000080"> username</font></label>
+                            <input type="text" name="username" class="form-control center" id="username" aria-describedby="usernameHelp" required>
+                        </div>
+                          <div class="form-group center">
+                              <label for="password1"><span>*</span><font color="#000080">password </font></label>
+                              <input type="password" name="password1" class="form-control" id="password1" required>
+                          </div>
+                    <div class="form-group center">
+                              <label for="password1"><span>*</span><font color="#000080">confirm password </font></label>
+                              <input type="password" name="password2" class="form-control" id="password2" required>
+                          </div>
+
+                        <button type="submit" class="btn btn-success">signup</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div><!-- tab-content -->
+</div> <!-- /form -->
+  </body>
+</html>
+{% endblock %}
